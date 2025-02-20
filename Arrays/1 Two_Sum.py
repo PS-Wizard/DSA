@@ -4,4 +4,3 @@ def twoSum(arr,target):
             return [i,arr.index(target-v)]
 
 print(twoSum([3,3],6))
-
