@@ -1,19 +1,39 @@
 orderedArr = [1,2,3,4,5,6,7,8,9,10]
+toSearch = -1
 
-def binarySearch(arr,toSearch):
-    mid = int(len(arr) / 2)
-    print(f'Checking: {arr}')
-    if not arr:
-        return False
+# def binarySearch(low,high):
+#     midPoint = (low + high)//2
+#
+#     print(f'Searching: {orderedArr[low:high]}')
+#     if low > high:
+#         return None
+#
+#     if orderedArr[midPoint] == toSearch:
+#         return midPoint
+#
+#     if orderedArr[midPoint] > toSearch:
+#         high = midPoint -1
+#
+#     if orderedArr[midPoint] < toSearch:
+#         low = midPoint + 1
+#
+#     return binarySearch(low,high)
+#
+# print(binarySearch(0,len(orderedArr)-1))
 
-    if arr[mid] == toSearch:
-        return True
-    
-    if arr[mid] < toSearch:
-        return binarySearch(arr[mid:],toSearch)
+def binarySearch(low,high):
+    while (low <= high):
+        midPoint = (low + high) // 2 
 
-    if arr[mid] > toSearch:
-        return binarySearch(arr[:mid],toSearch)
-     
+        if orderedArr[midPoint] == toSearch:
+            return midPoint
 
-print(binarySearch(orderedArr,-1))
+        if orderedArr[midPoint] > toSearch:
+            high = midPoint - 1
+
+        if orderedArr[midPoint] < toSearch:
+            low = midPoint + 1
+
+    return None
+
+print(binarySearch(0,len(orderedArr)-1))
